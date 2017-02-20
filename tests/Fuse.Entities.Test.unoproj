@@ -1,0 +1,12 @@
+{
+  "Packages": [
+    "Fuse",
+  ],
+  "Projects": [
+    "../src/Fuse.Entities.unoproj"
+  ],
+  "Includes": [
+    "Context.Test.uno:Source",
+    "Entity.Test.uno:Source"
+  ]
+}

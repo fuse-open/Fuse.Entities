@@ -1,0 +1,13 @@
+{
+  "RootNamespace":"",
+  "Packages": [
+    "Fuse",
+    "FuseJS"
+  ],
+  "Projects": [
+    "../src/Fuse.Entities.unoproj"
+  ],
+  "Includes": [
+    "*"
+  ],
+}

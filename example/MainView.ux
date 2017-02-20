@@ -1,0 +1,18 @@
+<App Background="#333">
+	<RenderNode>
+		<Scene Camera="camera">
+			<Entity ux:Name="camera">
+				<Frustum FovDegrees="120" ZNear="10" ZFar="500" />
+				<Transform3D Position="0, 0, 50" />
+			</Entity>
+
+
+			<Entity>
+				<Fuse.Entities.Primitives.CubeRenderer>
+					<DefaultMaterial />
+				</Fuse.Entities.Primitives.CubeRenderer>
+				<Fuse.Gestures.Trackball />
+			</Entity>
+		</Scene>
+	</RenderNode>
+</App>
