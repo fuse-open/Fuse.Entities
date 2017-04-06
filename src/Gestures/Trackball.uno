@@ -90,9 +90,9 @@ namespace Fuse.Gestures
 				return;
 
 			if (_soft)
-				args.ReleaseSoftCapture(this);
+				args.ReleaseCapture(this);
 			else
-				args.ReleaseHardCapture(this);
+				args.ReleaseCapture(this);
 			_captured = false;
 		}
 
