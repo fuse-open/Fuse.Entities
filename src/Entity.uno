@@ -1,7 +1,8 @@
 using Uno;
-using Uno.Geometry;
 using Uno.Collections;
 using Uno.UX;
+
+using Fuse.Entities.Geometry;
 
 namespace Fuse.Entities
 {
@@ -135,12 +136,12 @@ namespace Fuse.Entities
 			get { return VisualBounds.Infinite; }
 		}
 
-		public override Uno.Geometry.Box LocalBounds
+		public override Box LocalBounds
 		{
 			get
 			{
 				// TODO: this should compound child+component bounds
-				return new Uno.Geometry.Box(float3(0), float3(0));
+				return new Box(float3(0), float3(0));
 			}
 		}
 	}

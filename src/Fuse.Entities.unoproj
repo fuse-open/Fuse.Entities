@@ -8,8 +8,7 @@
   },
   "Packages": [
     "Fuse",
-    "Uno.Collections",
-    "Uno.Geometry"
+    "Uno.Collections"
   ],
   "Includes": [
     "Batch.uno:Source",
@@ -25,6 +24,16 @@
     "Filters/Blur.uno:Source",
     "Filters/FindEdges.uno:Source",
     "Frustum.uno:Source",
+    "Geometry/Box.uno:Source",
+    "Geometry/Collision.uno:Source",
+    "Geometry/Collision2D.uno:Source",
+    "Geometry/Cone.uno:Source",
+    "Geometry/Distance.uno:Source",
+    "Geometry/Frustum.uno:Source",
+    "Geometry/Plane.uno:Source",
+    "Geometry/Sphere.uno:Source",
+    "Geometry/Triangle.uno:Source",
+    "Geometry/Triangle2D.uno:Source",
     "Gestures/Trackball.uno:Source",
     "Internal/SceneGraphBuilder.uno:Source",
     "Internal/SceneGraphBuilderVisitor.uno:Source",

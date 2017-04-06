@@ -3,11 +3,13 @@ using Uno.Collections;
 using Uno.Graphics;
 using Uno.Content.Models;
 
+using Fuse.Entities.Geometry;
+
 namespace Fuse.Entities
 {
 	internal static class ModelMeshHelpers
 	{
-		public static Uno.Geometry.Box CalculateAABB(ModelMesh modelMesh)
+		public static Box CalculateAABB(ModelMesh modelMesh)
 		{
 			var positions = modelMesh.Positions;
 			var min = float3(float.MaxValue, float.MaxValue, float.MaxValue);
@@ -18,10 +20,10 @@ namespace Fuse.Entities
 				min = float3(Math.Min(min.X, p.X), Math.Min(min.Y, p.Y), Math.Min(min.Z, p.Z));
 				max = float3(Math.Max(max.X, p.X), Math.Max(max.Y, p.Y), Math.Max(max.Z, p.Z));
 			}
-			return new Uno.Geometry.Box(min, max);
+			return new Box(min, max);
 		}
 
-		public static Uno.Geometry.Sphere CalculateBoundingSphere(ModelMesh modelMesh)
+		public static Sphere CalculateBoundingSphere(ModelMesh modelMesh)
 		{
 			// Naive implementation for now
 			var positions = modelMesh.Positions;
@@ -35,7 +37,7 @@ namespace Fuse.Entities
 				radius = Math.Max(dist, radius);
 			}
 
-			return new Uno.Geometry.Sphere(center, radius);
+			return new Sphere(center, radius);
 		}
 	}
 }

@@ -2,7 +2,8 @@ using Uno;
 using Uno.Collections;
 using Uno.Graphics;
 using Uno.Content.Models;
-using Uno.Geometry;
+
+using Fuse.Entities.Geometry;
 
 namespace Fuse.Entities
 {
@@ -22,7 +23,7 @@ namespace Fuse.Entities
 			for (int t = 0; t < _count; t++)
 			{
 				float distance;
-				if (Uno.Geometry.Collision.RayIntersectsTriangle(objRay, GetTriangle(t), out distance))
+				if (Fuse.Entities.Geometry.Collision.RayIntersectsTriangle(objRay, GetTriangle(t), out distance))
 				{
 					hit = true;
 					if (distance < minDistance)

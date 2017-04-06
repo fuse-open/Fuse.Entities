@@ -2,7 +2,8 @@ using Uno;
 using Uno.Collections;
 using Uno.Graphics;
 using Uno.Content.Models;
-using Uno.Geometry;
+
+using Fuse.Entities.Geometry;
 
 namespace Fuse.Entities
 {
