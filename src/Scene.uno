@@ -69,12 +69,26 @@ namespace Fuse.Entities
 
 		public float4x4 ProjectionTransform
 		{
-			get { return Camera.FrustumComponent.GetProjectionTransform(this); }
+			get
+			{
+				float4x4 result;
+				if (Camera.FrustumComponent.TryGetProjectionTransform(this, out result))
+					return result;
+				else
+					return float4x4.Identity;
+			}
 		}
 
 		float4x4 ProjectionTransformInverse
 		{
-			get { return Camera.FrustumComponent.GetProjectionTransformInverse(this); }
+			get
+			{
+				float4x4 result;
+				if (Camera.FrustumComponent.TryGetProjectionTransformInverse(this, out result))
+					return result;
+				else
+					return float4x4.Identity;
+			}
 		}
 
 		public float4x4 ViewProjectionTransform
