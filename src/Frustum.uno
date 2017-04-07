@@ -141,9 +141,10 @@ namespace Fuse.Entities
 			return HasExplicitAspect ? ExplicitAspect : viewport.Size.X/viewport.Size.Y;
 		}
 
-		public float4x4 GetProjectionTransform( ICommonViewport viewport )
+		public bool TryGetProjectionTransform(ICommonViewport viewport, out float4x4 result)
 		{
-			return Matrix.PerspectiveRH(FovRadians, ViewportAspect(viewport), ZNear, ZFar);
+			result = Matrix.PerspectiveRH(FovRadians, ViewportAspect(viewport), ZNear, ZFar);
+			return true;
 		}
 
 		public float4x4 GetViewTransform(ICommonViewport viewport)
@@ -151,10 +152,15 @@ namespace Fuse.Entities
 			return View;
 		}
 
-		public float4x4 GetProjectionTransformInverse(ICommonViewport viewport)
+		public bool TryGetProjectionTransformInverse(ICommonViewport viewport, out float4x4 result)
 		{
 			//TODO: fix to produce directly!
-			return Matrix.Invert(GetProjectionTransform(viewport));
+			if (TryGetProjectionTransform(viewport, out result))
+			{
+				result = Matrix.Invert(result);
+				return true;
+			}
+			return false;
 		}
 
 		public float4x4 GetViewTransformInverse(ICommonViewport viewport)
