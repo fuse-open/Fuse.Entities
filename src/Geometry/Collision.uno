@@ -156,6 +156,8 @@ namespace Fuse.Entities.Geometry
 			result += sphere1.Center;
 		}
 
+		const float _zeroTolerance = 1e-05f;
+
 		public static bool RayIntersectsPoint(Ray ray, float3 point)
 		{
 			//Source: RayIntersectsSphere
@@ -166,7 +168,7 @@ namespace Fuse.Entities.Geometry
 			//Same thing as RayIntersectsSphere except that the radius of the sphere (point)
 			//is the epsilon for zero.
 			float b = Vector.Dot(m, ray.Direction);
-			float c = Vector.Dot(m, m) - float.ZeroTolerance;
+			float c = Vector.Dot(m, m) - _zeroTolerance;
 
 			if (c > 0.f && b > 0.f)
 			return false;
@@ -188,12 +190,12 @@ namespace Fuse.Entities.Geometry
 			float denominator = Vector.Length(cross);
 
 			//Lines are parallel.
-			if (Math.Abs(denominator) < float.ZeroTolerance)
+			if (Math.Abs(denominator) < _zeroTolerance)
 			{
 				//Lines are parallel and on top of each other.
-				if (Math.Abs(ray2.Position.X - ray1.Position.X) < float.ZeroTolerance &&
-				Math.Abs(ray2.Position.Y - ray1.Position.Y) < float.ZeroTolerance &&
-				Math.Abs(ray2.Position.Z - ray1.Position.Z) < float.ZeroTolerance)
+				if (Math.Abs(ray2.Position.X - ray1.Position.X) < _zeroTolerance &&
+				Math.Abs(ray2.Position.Y - ray1.Position.Y) < _zeroTolerance &&
+				Math.Abs(ray2.Position.Z - ray1.Position.Z) < _zeroTolerance)
 				{
 					point = float3(0);
 					return true;
@@ -245,9 +247,9 @@ namespace Fuse.Entities.Geometry
 			float3 point2 = ray2.Position + (ray2.Direction * t);
 
 			//If the points are not equal, no intersection has occured.
-			if (Math.Abs(point2.X - point1.X) > float.ZeroTolerance ||
-			Math.Abs(point2.Y - point1.Y) > float.ZeroTolerance ||
-			Math.Abs(point2.Z - point1.Z) > float.ZeroTolerance)
+			if (Math.Abs(point2.X - point1.X) > _zeroTolerance ||
+			Math.Abs(point2.Y - point1.Y) > _zeroTolerance ||
+			Math.Abs(point2.Z - point1.Z) > _zeroTolerance)
 			{
 				point = float3(0);
 				return false;
@@ -264,7 +266,7 @@ namespace Fuse.Entities.Geometry
 
 			float direction = Vector.Dot(plane.Normal, ray.Direction);
 
-			if (Math.Abs(direction) < float.ZeroTolerance)
+			if (Math.Abs(direction) < _zeroTolerance)
 			{
 				distance = 0.f;
 				return false;
@@ -275,7 +277,7 @@ namespace Fuse.Entities.Geometry
 
 			if (distance < 0.f)
 			{
-				if (distance < -float.ZeroTolerance)
+				if (distance < -_zeroTolerance)
 				{
 					distance = 0;
 					return false;
@@ -326,7 +328,7 @@ namespace Fuse.Entities.Geometry
 			//If the ray is parallel to the triangle plane, there is no collision.
 			//This also means that we are not culling, the ray may hit both the
 			//back and the front of the triangle.
-			if (determinant > -float.ZeroTolerance && determinant < float.ZeroTolerance)
+			if (determinant > -_zeroTolerance && determinant < _zeroTolerance)
 			{
 				distance = 0.f;
 				return false;
@@ -399,7 +401,7 @@ namespace Fuse.Entities.Geometry
 			distance = 0.f;
 			float tmax = float.MaxValue;
 
-			if (Math.Abs(ray.Direction.X) < float.ZeroTolerance)
+			if (Math.Abs(ray.Direction.X) < _zeroTolerance)
 			{
 				if (ray.Position.X < box.Minimum.X || ray.Position.X > box.Maximum.X)
 				{
@@ -430,7 +432,7 @@ namespace Fuse.Entities.Geometry
 				}
 			}
 
-			if (Math.Abs(ray.Direction.Y) < float.ZeroTolerance)
+			if (Math.Abs(ray.Direction.Y) < _zeroTolerance)
 			{
 				if (ray.Position.Y < box.Minimum.Y || ray.Position.Y > box.Maximum.Y)
 				{
@@ -461,7 +463,7 @@ namespace Fuse.Entities.Geometry
 				}
 			}
 
-			if (Math.Abs(ray.Direction.Z) < float.ZeroTolerance)
+			if (Math.Abs(ray.Direction.Z) < _zeroTolerance)
 			{
 				if (ray.Position.Z < box.Minimum.Z || ray.Position.Z > box.Maximum.Z)
 				{
@@ -635,7 +637,7 @@ namespace Fuse.Entities.Geometry
 			//coincident. It is not an intersection. The dot product will tell us.
 			float denominator = Vector.Dot(direction, direction);
 
-			if (Math.Abs(denominator) < float.ZeroTolerance)
+			if (Math.Abs(denominator) < _zeroTolerance)
 			return false;
 
 			return true;
@@ -655,7 +657,7 @@ namespace Fuse.Entities.Geometry
 			//We assume the planes are normalized, therefore the denominator
 			//only serves as a parallel and coincident check. Otherwise we need
 			//to deivide the point by the denominator.
-			if (Math.Abs(denominator) < float.ZeroTolerance)
+			if (Math.Abs(denominator) < _zeroTolerance)
 			{
 				line = new Ray();
 				return false;
@@ -1141,7 +1143,7 @@ namespace Fuse.Entities.Geometry
 			return ContainmentType.Contains;
 		}
 
-		public static bool AreParallel( float3 a, float3 b, float tolerance = float.ZeroTolerance * 10)
+		public static bool AreParallel( float3 a, float3 b, float tolerance = _zeroTolerance * 10)
 		{
 			var c = Vector.Cross( a, b );
 			var l = c.X + c.Y + c.Z;

@@ -4,6 +4,8 @@ namespace Fuse.Entities.Geometry
 {
 	public static class Collision2D
 	{
+		const float _zeroTolerance = 1e-05f;
+
 		//refer to barycentric technique: http://www.blackpawn.com/texts/pointinpoly/default.html
 		public static bool TriangleContainsPoint(float2 A, float2 B, float2 C, float2 P)
 		{
@@ -16,7 +18,7 @@ namespace Fuse.Entities.Geometry
 			var dot11 = Vector.Dot(v1, v1);
 			var dot12 = Vector.Dot(v1, v2);
 			var denom = dot00 * dot11 - dot01 * dot01;
-			if( denom < float.ZeroTolerance )
+			if( denom < _zeroTolerance )
 				return false;
 			var invDenom = 1.0f / denom;
 			var u = (dot11 * dot02 - dot01 * dot12) * invDenom;
@@ -45,7 +47,7 @@ namespace Fuse.Entities.Geometry
 
 			// Get delta and check if the lines are parallel
 			float delta = A1*B2 - A2*B1;
-			if( Math.Abs(delta) < float.ZeroTolerance )
+			if( Math.Abs(delta) < _zeroTolerance )
 				return ps1;
 
 			// now return the Vector2 intersection point
@@ -55,7 +57,7 @@ namespace Fuse.Entities.Geometry
 			);
 		}
 
-		public static bool AreParallel( float2 a, float2 b, float tolerance = float.ZeroTolerance * 10)
+		public static bool AreParallel( float2 a, float2 b, float tolerance = _zeroTolerance * 10)
 		{
 			var l = a.X*b.Y - a.Y*b.X;
 			return Math.Abs(l) < tolerance;
@@ -65,7 +67,7 @@ namespace Fuse.Entities.Geometry
 		{
 			var d = Vector.Dot( a, b );
 			var l = Vector.Length( a ) * Vector.Length( b );
-			if( l < float.ZeroTolerance )
+			if( l < _zeroTolerance )
 				return 0;
 			return Math.Acos( d / l );
 		}
