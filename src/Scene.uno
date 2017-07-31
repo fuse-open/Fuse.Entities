@@ -1,5 +1,4 @@
 using Uno;
-using Uno.Geometry;
 using Uno.UX;
 
 namespace Fuse.Entities

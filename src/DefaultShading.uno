@@ -1,10 +1,11 @@
 using Uno;
 using Uno.Diagnostics;
-using Uno.Geometry;
 using Uno.Graphics;
 using Uno.Math;
 using Uno.Matrix;
 using Uno.Vector;
+
+using Fuse.Entities.Geometry;
 
 namespace Fuse.Entities
 {

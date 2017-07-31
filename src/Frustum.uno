@@ -1,8 +1,9 @@
 using Uno;
-using Uno.Geometry;
 using Uno.UX;
 using Uno.Vector;
 using Uno.Math;
+
+using Fuse.Entities.Geometry;
 
 namespace Fuse.Entities
 {
@@ -97,7 +98,7 @@ namespace Fuse.Entities
 		}
 
 		// rect => [-1, 1]
-		public Uno.Geometry.Frustum GetFrustumGeometry(float aspect, Rect rect)
+		public Fuse.Entities.Geometry.Frustum GetFrustumGeometry(float aspect, Rect rect)
 		{
 			var position = Vector.TransformCoordinate(float3(0, 0, 0), InverseView);
 			var xAxis = Vector.TransformNormal(float3(1,0,0), InverseView);
@@ -113,7 +114,7 @@ namespace Fuse.Entities
 			var fc = position + zAxis * zFar;
 			var nc = position + zAxis * zNear;
 
-			Uno.Geometry.Frustum result;
+			Fuse.Entities.Geometry.Frustum result;
 			result.Near = new Plane(nc, -zAxis);
 			result.Far = new Plane(fc, zAxis);
 
@@ -131,7 +132,7 @@ namespace Fuse.Entities
 			return result;
 		}
 
-		public Uno.Geometry.Frustum GetFrustumGeometry(float aspect)
+		public Fuse.Entities.Geometry.Frustum GetFrustumGeometry(float aspect)
 		{
 			return GetFrustumGeometry(aspect, new Rect(-1, 1, 1, -1));
 		}

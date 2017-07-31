@@ -6,7 +6,16 @@
     "../src/Fuse.Entities.unoproj"
   ],
   "Includes": [
+    "Box.Test.uno:Source",
+    "Collision.Test.uno:Source",
+    "Collision2D.Test.uno:Source",
     "Context.Test.uno:Source",
-    "Entity.Test.uno:Source"
+    "Distance.Test.uno:Source",
+    "Entity.Test.uno:Source",
+    "Frustum.Test.uno:Source",
+    "Plane.Test.uno:Source",
+    "Ray.Test.uno:Source",
+    "Sphere.Test.uno:Source",
+    "Triangle.Test.uno:Source"
   ]
 }

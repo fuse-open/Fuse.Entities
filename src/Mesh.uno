@@ -6,6 +6,8 @@ using Uno.Collections.EnumerableExtensions;
 
 using Fuse.Drawing.Batching;
 
+using Fuse.Entities.Geometry;
+
 namespace Fuse.Entities
 {
 	public class Mesh : IDisposable
@@ -16,7 +18,7 @@ namespace Fuse.Entities
 		internal ModelMesh ModelMesh { get { return _drawable.Mesh; } }
 
 		bool _meshBoxDirty = true;
-		Uno.Geometry.Box _meshBox;
+		Box _meshBox;
 
 		bool isDirty = true;
 		Batch[] batches;
@@ -27,7 +29,7 @@ namespace Fuse.Entities
 			// TODO
 		}
 
-		public Uno.Geometry.Box BoundingBox
+		public Box BoundingBox
 		{
 			get
 			{
@@ -41,9 +43,9 @@ namespace Fuse.Entities
 		}
 
 		bool _meshSphereDirty = true;
-		Uno.Geometry.Sphere _meshSphere;
+		Sphere _meshSphere;
 
-		public Uno.Geometry.Sphere BoundingSphere
+		public Sphere BoundingSphere
 		{
 			get
 			{

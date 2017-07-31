@@ -97,11 +97,11 @@ namespace Fuse.Entities
 
 	public class DirectionalLight : Light
 	{
-		public Uno.Geometry.Box Box { get; set; }
+		public Box Box { get; set; }
 
 		public DirectionalLight()
 		{
-			Box = new Uno.Geometry.Box(float3(-100,-100,0), float3(100,100,5000));
+			Box = new Box(float3(-100,-100,0), float3(100,100,5000));
 		}
 
 		public override void Accept(ILightVisitor visitor)

@@ -117,10 +117,11 @@ namespace Fuse.Entities.Internal
 			for (int i = 0; i < 4; i++)
 			{
 				var d = mat[i] - id[i];
-				if (Math.Abs(d.X) > float.ZeroTolerance) return false;
-				if (Math.Abs(d.Y) > float.ZeroTolerance) return false;
-				if (Math.Abs(d.Z) > float.ZeroTolerance) return false;
-				if (Math.Abs(d.W) > float.ZeroTolerance) return false;
+				const float zeroTolerance = 1e-05f;
+				if (Math.Abs(d.X) > zeroTolerance) return false;
+				if (Math.Abs(d.Y) > zeroTolerance) return false;
+				if (Math.Abs(d.Z) > zeroTolerance) return false;
+				if (Math.Abs(d.W) > zeroTolerance) return false;
 			}
 			return true;
 		}

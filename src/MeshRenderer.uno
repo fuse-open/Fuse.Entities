@@ -4,7 +4,6 @@ using Uno.Graphics;
 using Uno.UX;
 using Uno.Content;
 using Uno.Content.Models;
-using Uno.Geometry;
 
 using Fuse.Entities.Designer;
 using Fuse.Drawing.Batching;
@@ -98,7 +97,7 @@ namespace Fuse.Entities
 			{
 				if (HitTestMode == MeshHitTestMode.BoundingSphere)
 				{
-					hit = Collision.RayIntersectsSphere(objRay, _mesh.BoundingSphere, out distance);
+					hit = Fuse.Entities.Geometry.Collision.RayIntersectsSphere(objRay, _mesh.BoundingSphere, out distance);
 				}
 				else if (HitTestMode == MeshHitTestMode.Precise)
 				{

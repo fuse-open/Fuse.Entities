@@ -124,9 +124,10 @@ namespace Fuse.Entities
 		{
 			get
 			{
-				return Math.Abs(RotationDegrees.X) < float.ZeroTolerance &&
-				Math.Abs(RotationDegrees.Y) < float.ZeroTolerance &&
-				Math.Abs(Position.Z) < float.ZeroTolerance;
+				const float _zeroTolerance = 1e-05f;
+				return Math.Abs(RotationDegrees.X) < _zeroTolerance &&
+				Math.Abs(RotationDegrees.Y) < _zeroTolerance &&
+				Math.Abs(Position.Z) < _zeroTolerance;
 			}
 		}
 	}
