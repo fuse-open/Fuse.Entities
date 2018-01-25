@@ -101,24 +101,27 @@ namespace Fuse.Gestures
 				return;
 
 			//get normal to movement vector in the object's local space
-			var dir0 = args.WindowPoint - _pressLoc;
-			var dir = float2(dir0.X,-dir0.Y);
-			var norm = Vector.Normalize(float3(-dir.Y,dir.X,0));
-			var length = Vector.Length(dir);
-			var angular = length / (2*_radius);
-
-			var localNorm = Vector.Normalize( Vector.TransformNormal( norm, _pressInvView ) ).XYZ;
-
-			//rotate around that vector
-			var q = Quaternion.RotationAxis(localNorm,angular);
-			var cq = Quaternion.Mul( _pressQ, q );
-			_transform.RotationQuaternion = cq;
-
-			if (_soft && length > hardCaptureThreshold)
+			if (args.WindowPoint != _pressLoc)
 			{
-				if (!args.TryHardCapture(this, OnLostCapture))
-					OnLostCapture();
-				_soft = false;
+				var dir0 = args.WindowPoint - _pressLoc;
+				var dir = float2(dir0.X,-dir0.Y);
+				var norm = Vector.Normalize(float3(-dir.Y,dir.X,0));
+				var length = Vector.Length(dir);
+				var angular = length / (2*_radius);
+
+				var localNorm = Vector.Normalize( Vector.TransformNormal( norm, _pressInvView ) ).XYZ;
+
+				//rotate around that vector
+				var q = Quaternion.RotationAxis(localNorm,angular);
+				var cq = Quaternion.Mul( _pressQ, q );
+				_transform.RotationQuaternion = cq;
+
+				if (_soft && length > hardCaptureThreshold)
+				{
+					if (!args.TryHardCapture(this, OnLostCapture))
+						OnLostCapture();
+					_soft = false;
+				}
 			}
 		}
 
