@@ -199,7 +199,7 @@ namespace Fuse.Drawing.Batching
 				if (vbo == null)
 					this.vbo = new VertexBuffer(Buffer.SizeInBytes, usage);
 
-				vbo.Update(buf);
+				vbo.Update(buf.GetBytes());
 				isDirty = false;
 			}
 		}
