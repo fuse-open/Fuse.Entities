@@ -1,8 +1,8 @@
 using Uno;
 using Uno.Graphics;
-using Uno.Content.Models;
 using Uno.Collections.EnumerableExtensions;
 
+using Fuse.Content.Models;
 using Fuse.Drawing.Batching;
 using Fuse.Entities.Geometry;
 

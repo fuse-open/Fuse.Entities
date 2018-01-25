@@ -1,5 +1,6 @@
 using Uno.Collections;
-using Uno.Content.Models;
+
+using Fuse.Content.Models;
 
 namespace Fuse.Entities.Internal
 {
