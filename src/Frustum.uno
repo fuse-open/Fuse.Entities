@@ -1,7 +1,4 @@
 using Uno;
-using Uno.UX;
-using Uno.Vector;
-using Uno.Math;
 
 using Fuse.Entities.Geometry;
 

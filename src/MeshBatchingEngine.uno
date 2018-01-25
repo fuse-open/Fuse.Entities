@@ -1,8 +1,6 @@
 using Uno;
 using Uno.Collections;
 
-using Fuse;
-using Fuse.Drawing;
 using Fuse.Drawing.Batching;
 
 namespace Fuse.Entities

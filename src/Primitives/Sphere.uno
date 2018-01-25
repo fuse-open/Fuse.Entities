@@ -1,5 +1,3 @@
-using Uno;
-using Uno.UX;
 using Uno.Content.Models;
 
 using Fuse.Drawing.Meshes;

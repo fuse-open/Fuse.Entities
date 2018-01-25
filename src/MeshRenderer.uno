@@ -1,11 +1,7 @@
 using Uno;
-using Uno.Collections;
 using Uno.Graphics;
 using Uno.UX;
-using Uno.Content;
-using Uno.Content.Models;
 
-using Fuse.Entities.Designer;
 using Fuse.Drawing.Batching;
 
 namespace Fuse.Entities

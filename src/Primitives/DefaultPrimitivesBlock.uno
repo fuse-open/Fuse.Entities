@@ -1,8 +1,5 @@
-using Uno;
-using Uno.UX;
 using Uno.Content.Models;
 
-using Fuse.Drawing;
 using Fuse.Drawing.Batching;
 
 namespace Fuse.Drawing.Primitives

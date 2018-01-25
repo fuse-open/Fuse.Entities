@@ -4,7 +4,6 @@ using Uno.Testing;
 
 using Fuse;
 using Fuse.Controls;
-using Fuse.Entities;
 
 class TestRootPanel : Panel
 {
