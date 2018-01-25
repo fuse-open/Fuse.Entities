@@ -88,7 +88,7 @@ namespace Fuse.Drawing.Batching
 		{
 			if (buf != null && isDirty)
 			{
-				ibo.Update(buf);
+				ibo.Update(buf.GetBytes());
 				isDirty = false;
 			}
 		}
