@@ -1,5 +1,4 @@
 using Uno;
-using Uno.UX;
 using Fuse.Drawing.Primitives;
 
 namespace Fuse.Entities.Filters

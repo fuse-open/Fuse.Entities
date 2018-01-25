@@ -1,6 +1,3 @@
-using Uno;
-using Uno.Graphics;
-using Uno.Collections;
 using Uno.UX;
 
 namespace Fuse.Entities
