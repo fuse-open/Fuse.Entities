@@ -29,7 +29,7 @@ namespace Fuse.Entities
 
 		protected virtual void OnDraw(DrawContext dc)
 		{
-			for (int i = 0; i < ZOrderChildCount; i++)
+			for (int i = 0; i < VisualChildCount; i++)
 				GetZOrderChild(i).Draw(dc);
 		}
 
