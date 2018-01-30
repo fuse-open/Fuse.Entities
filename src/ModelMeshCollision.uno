@@ -1,6 +1,6 @@
 using Uno;
-using Uno.Content.Models;
 
+using Fuse.Content.Models;
 using Fuse.Entities.Geometry;
 
 namespace Fuse.Entities

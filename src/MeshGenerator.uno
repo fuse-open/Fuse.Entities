@@ -1,7 +1,8 @@
 using Uno;
 using Uno.Graphics;
 using Uno.Collections;
-using Uno.Content.Models;
+
+using Fuse.Content.Models;
 
 namespace Fuse.Drawing.Meshes
 {

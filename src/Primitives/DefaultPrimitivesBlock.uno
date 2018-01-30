@@ -1,5 +1,4 @@
-using Uno.Content.Models;
-
+using Fuse.Content.Models;
 using Fuse.Drawing.Batching;
 
 namespace Fuse.Drawing.Primitives

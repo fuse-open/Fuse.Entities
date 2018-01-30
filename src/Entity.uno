@@ -1,6 +1,7 @@
 using Uno;
 
 using Fuse.Entities.Geometry;
+using Fuse.Content.Models;
 
 namespace Fuse.Entities
 {
@@ -35,7 +36,7 @@ namespace Fuse.Entities
 			}
 		}
 
-		public static Entity FromModel(Uno.Content.Models.Model model)
+		public static Entity FromModel(Model model)
 		{
 			return new Internal.SceneGraphBuilder().Build(model);
 		}

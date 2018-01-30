@@ -229,7 +229,7 @@ namespace Fuse.Entities
 				newPositions[index] = newPosition;
 			}
 
-			modelMesh.Positions = new Uno.Content.Models.VertexAttributeArray(newPositions);
+			modelMesh.Positions = new Fuse.Content.Models.VertexAttributeArray(newPositions);
 
 
 			Mesh.Invalidate();
@@ -307,7 +307,7 @@ namespace Fuse.Entities
 					+ pW * boneWeights.W;
 			}
 
-			modelMesh.Positions = new Uno.Content.Models.VertexAttributeArray(newPositions);
+			modelMesh.Positions = new Fuse.Content.Models.VertexAttributeArray(newPositions);
 
 			Mesh.Invalidate();
 		}

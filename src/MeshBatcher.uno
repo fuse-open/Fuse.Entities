@@ -1,6 +1,7 @@
 using Uno.Collections;
 using Uno.Collections.EnumerableExtensions;
-using Uno.Content.Models;
+
+using Fuse.Content.Models;
 
 namespace Fuse.Drawing.Batching
 {
