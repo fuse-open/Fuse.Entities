@@ -30,7 +30,6 @@
     "Internal/SceneGraphBuilderVisitor.uno:Source",
     "Models/IndexArray.uno:Source",
     "Models/Model.uno:Source",
-    "Models/ModelBlockFactory.uno:Source",
     "Models/ModelFileImporter.uno:Source",
     "Models/ModelMesh.uno:Source",
     "Models/ModelParameter.uno:Source",
