@@ -132,7 +132,7 @@ namespace Fuse.Content.Models
                 var semantics = r.ReadString();
                 var attributeType = (VertexAttributeType)(int)r.ReadByte();
                 var bufferIndex = r.ReadCompressedInt();
-                vertexAttributes[semantics] = new VertexAttributeArray(attributeType, _buffer.CreateReadOnlySubBuffer(_bufferOffsets[bufferIndex], VertexAttributeTypeHelpers.GetStrideInBytes(attributeType) * vertexCount));
+                vertexAttributes[semantics] = new VertexAttributeArray(attributeType, _buffer.CreateSubBuffer(_bufferOffsets[bufferIndex], VertexAttributeTypeHelpers.GetStrideInBytes(attributeType) * vertexCount));
             }
 
             IndexArray indices = null;
@@ -148,7 +148,7 @@ namespace Fuse.Content.Models
                         : IndexType.UInt;
 
                 var bufferIndex = r.ReadCompressedInt();
-                indices = new IndexArray(indexType, _buffer.CreateReadOnlySubBuffer(_bufferOffsets[bufferIndex], IndexTypeHelpers.GetStrideInBytes(indexType) * indexCount));
+                indices = new IndexArray(indexType, _buffer.CreateSubBuffer(_bufferOffsets[bufferIndex], IndexTypeHelpers.GetStrideInBytes(indexType) * indexCount));
             }
 
             return new ModelMesh(name, primitiveType, vertexAttributes, indices);
